@@ -9,9 +9,10 @@ i=misc.ascent() # 灰度图像
 # plt.axis('off')
 # plt.imshow(i)
 # plt.show()
-# 此时图像被存储为numpy array
 
-i_trainsformed = np.copy(i)
+
+
+i_trainsformed = np.copy(i)     # 此时图像被存储为numpy array
 size_x = i_trainsformed.shape[0]
 size_y = i_trainsformed.shape[1]
 
