@@ -26,8 +26,9 @@ last_output = last_layer.output
 
 x=layers.Flatten()(last_output)
 x=layers.Dense(1024,activation='relu')(x)
-x=layers.Dense(1,activation='sigmoid')(x)
 x=layers.Dropout(0.2)(x)
+x=layers.Dense(1,activation='sigmoid')(x)
+
 model=Model(pre_trained_model.input,x)
 
 model.compile(optimizer=RMSprop(lr=0.0001),
@@ -81,7 +82,7 @@ validation_generator=test_datagen.flow_from_directory(
     class_mode='binary'
 )
 
-history=model.fit(
+history=model.fit_generator(
     train_generator,
     validation_data=validation_generator,
     steps_per_epoch=100,
